@@ -9,19 +9,18 @@ namespace FightTheEvilOverlord
 {
     class Audio : Component
     {
+        Menue menue;
         SoundEffectInstance instance;
         SoundEffectInstance gameInstance;
         private SoundEffect effect;
         private SoundEffect menuEffect;
         private SoundEffect gameEffect;
         float volume = 1.0f;
-        float pitch;
-        float pan;
 
         public void SetAndPlay(SoundEffect effect)
         {
             this.effect = effect;
-            effect.Play(volume, pitch, pan);
+            effect.Play(volume,0, 0);
         }
 
         public void SetMenuMusicAndPlay(SoundEffect menuEffect)
@@ -41,6 +40,10 @@ namespace FightTheEvilOverlord
                 if (instance.Volume == 0.01000067f)
                 {
                     instance.Volume = 0;
+                    if (instance.Volume == 0)
+                    {
+                        instance.Stop();
+                    }
                 }
             }
         }
@@ -56,13 +59,16 @@ namespace FightTheEvilOverlord
 
         public void GameSoundRegulation()
         {
-            for (float i = 0; i < 1.0f; i++)
+            if (this.menue.Audio.volume == 0)
             {
-                gameInstance.Volume += 0.01f;
+                for (float i = 0; i < 100.0f; i++)
+                {
+                    gameInstance.Volume += 0.01f;
+                }  
             }
             if (gameInstance.Volume == 1)
             {
-                gameInstance.Volume = 1;
+               gameInstance.Volume = 1;
             }
         }
 

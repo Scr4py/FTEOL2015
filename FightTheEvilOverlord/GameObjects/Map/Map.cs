@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 
 namespace FightTheEvilOverlord
 {
@@ -15,7 +16,7 @@ namespace FightTheEvilOverlord
         public int moveY;
 
         string Type;
-
+        public Audio Audio;
         public Texture2D texMountain;
         public Texture2D texForrest;
         public Texture2D texPlaines;
@@ -35,6 +36,9 @@ namespace FightTheEvilOverlord
             this.moveX = (int)(((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width) - mapWidth * (1084 * Renderer.scale)) / 2);
             this.moveY = (int)(((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height) - mapHeight * (1252 * Renderer.scale)) / 2);
             this.texForrest = texForrest;
+            this.Audio = AddComponent<Audio>();
+            this.Audio.SetGameMusic(Utility.CurrentContent.Load<SoundEffect>("Audio\\GameMusic"));
+            //this.Audio.GameSoundRegulation();
             //this.hudTex = hudTex;
             this.texMountain = texMountain;
             this.texPlaines = texPlaines;
