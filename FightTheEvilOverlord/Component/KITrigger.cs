@@ -237,16 +237,16 @@ namespace FightTheEvilOverlord
         {
             if (currentTile.mapX % 2 == 0)
             {
-                if (currentTile.mapX < map.mapWidth)
+                if (Utility.ActivePlayerNumber == 0 || Utility.ActivePlayerNumber == 1 || Utility.ActivePlayerNumber == 2)
                 {
-                    if (Utility.ActivePlayerNumber == 0 || Utility.ActivePlayerNumber == 1 || Utility.ActivePlayerNumber == 2)
+                    if (currentTile.mapX < map.mapWidth)
                     {
                         if (map.tilesArray[currentTile.mapX + 1, currentTile.mapY] != null)
                         {
                             MoveSoldiers(currentTile, map.tilesArray[currentTile.mapX + 1, currentTile.mapY]);
                         }
                         else if (currentTile.mapY > 0)
-                        { 
+                        {
                             if (map.tilesArray[currentTile.mapX + 1, currentTile.mapY - 1] != null)
                             {
                                 MoveSoldiers(currentTile, map.tilesArray[currentTile.mapX + 1, currentTile.mapY - 1]);
