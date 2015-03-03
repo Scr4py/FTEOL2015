@@ -38,7 +38,7 @@ namespace FightTheEvilOverlord
             this.texForrest = texForrest;
             this.Audio = AddComponent<Audio>();
             this.Audio.SetGameMusic(Utility.CurrentContent.Load<SoundEffect>("Audio\\GameMusic"));
-            //this.Audio.GameSoundRegulation();
+            this.Audio.GameSoundRegulation();
             //this.hudTex = hudTex;
             this.texMountain = texMountain;
             this.texPlaines = texPlaines;

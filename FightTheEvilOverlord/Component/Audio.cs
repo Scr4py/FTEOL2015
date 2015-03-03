@@ -59,7 +59,7 @@ namespace FightTheEvilOverlord
 
         public void GameSoundRegulation()
         {
-            if (this.menue.Audio.volume == 0)
+            if (Utility.menue.Audio.instance.Volume == 0)
             {
                 for (float i = 0; i < 100.0f; i++)
                 {
