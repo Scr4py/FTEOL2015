@@ -16,6 +16,9 @@ namespace FightTheEvilOverlord
         private SoundEffect effect;
         private SoundEffect menuEffect;
         private SoundEffect gameEffect;
+        float timer;
+        float playTimer = 200;
+        bool play = true;
         float volume = 1.0f;
 
         public void Start()
@@ -25,7 +28,12 @@ namespace FightTheEvilOverlord
 
         private void Update(GameTime gameTime)
         {
-            GameSoundRegulation();
+            this.timer = gameTime.ElapsedGameTime.Milliseconds;
+            if (this.timer > playTimer )
+            {
+                GameSoundRegulation();
+                
+            }
         }
 
         public void SetAndPlay(SoundEffect effect)
@@ -70,22 +78,25 @@ namespace FightTheEvilOverlord
 
         public void GameSoundRegulation()
         {
-            if (Utility.menue.Audio.instance.Volume == 0)
+            if (play)
             {
-                for (float i = 0.01f; i > gameInstance.Volume; i++)
+                if (Utility.menue.Audio.instance.Volume == 0)
                 {
-                    if (i >= 50)
+                    for (float i = 0.01f; i > gameInstance.Volume; i++)
                     {
-                        gameInstance.Volume = 0.50f;
-
-                    }
-                    if (i <= 50)
-                    {
-                       gameInstance.Volume += 0.01f;
+                        if (gameInstance.Volume >= 0.5f)
+                        {
+                            this.play = false;
+                            gameInstance.Volume = 0.5f;
+                            break;
+                        }
+                        else
+                        {
+                            gameInstance.Volume += 0.01f;
+                        }
                     }
                 }
             }
-            
         }
 
     }
