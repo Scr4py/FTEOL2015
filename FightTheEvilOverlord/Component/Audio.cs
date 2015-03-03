@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework;
 
 namespace FightTheEvilOverlord
 {
@@ -16,6 +17,16 @@ namespace FightTheEvilOverlord
         private SoundEffect menuEffect;
         private SoundEffect gameEffect;
         float volume = 1.0f;
+
+        public void Start()
+        {
+            EventManager.OnUpdate += Update;
+        }
+
+        private void Update(GameTime gameTime)
+        {
+            GameSoundRegulation();
+        }
 
         public void SetAndPlay(SoundEffect effect)
         {
@@ -61,15 +72,20 @@ namespace FightTheEvilOverlord
         {
             if (Utility.menue.Audio.instance.Volume == 0)
             {
-                for (float i = 0; i < 100.0f; i++)
+                for (float i = 0.01f; i > gameInstance.Volume; i++)
                 {
-                    gameInstance.Volume += 0.01f;
-                }  
+                    if (i >= 50)
+                    {
+                        gameInstance.Volume = 0.50f;
+
+                    }
+                    if (i <= 50)
+                    {
+                       gameInstance.Volume += 0.01f;
+                    }
+                }
             }
-            if (gameInstance.Volume == 1)
-            {
-               gameInstance.Volume = 1;
-            }
+            
         }
 
     }
