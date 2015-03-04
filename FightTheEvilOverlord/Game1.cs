@@ -25,6 +25,7 @@ namespace FightTheEvilOverlord
         Cursor cursor;
         Map map;
         Hud hud;
+        Button button;
         SpriteFont Font;
 
         float fps;
@@ -52,9 +53,9 @@ namespace FightTheEvilOverlord
 
             Utility.CurrentGraphicsDevice = this.GraphicsDevice;
             Utility.CurrentContent = this.Content;
+            Utility.button = new Button(GameState.Menue);
 
             Utility.menue = new Menue();
-
             Utility.map = this.map;
             Utility.hud = this.hud;
             Utility.GameManager = this.gameManager;

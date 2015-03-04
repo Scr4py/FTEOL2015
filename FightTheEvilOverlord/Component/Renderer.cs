@@ -22,6 +22,7 @@ namespace FightTheEvilOverlord
             EventManager.OnRender += Render;
         }
 
+
         private void Render(SpriteBatch spriteBatch)
         {
             if (this.image != null)

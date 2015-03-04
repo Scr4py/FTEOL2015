@@ -34,6 +34,7 @@ namespace FightTheEvilOverlord
         public static Player EvilOverLord;
         public static GameManager GameManager;
         public static Menue menue;
+        public static Button button;
 
         public static Map map;
         public static Hud hud;

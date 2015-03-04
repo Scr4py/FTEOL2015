@@ -24,6 +24,8 @@ namespace FightTheEvilOverlord
         public Button TileColor;
         public Button Slider;
         public Button Menu;
+        float timer;
+        float currentTimer = 1000;
 
         float scale;
         public Menue()
@@ -34,7 +36,7 @@ namespace FightTheEvilOverlord
             this.Audio = AddComponent<Audio>();
             this.Audio.SetMenuMusicAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\MenuMusic"));
             //Menue Background
-            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\MenueBackground"), 1.0f, 0.35f, 0.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 350 * (scale), 0)));
+
             //How to backgrounds
             this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\OptionBackground"), 1.0f, 0.35f, 94.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 350, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height + 65)));
             this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\OptionBackground"), 1.0f, 0.2f, 38.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 1.38f, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height + 65)));
@@ -62,39 +64,51 @@ namespace FightTheEvilOverlord
             this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\Test1"), 0.35f, 0.35f, 1.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - (100 * scale), 1800)));
             //Options Background
             this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\OptionBackground"), 1.0f, 0.35f, 94.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - (350 * scale), -GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height)));
-            //Characters
-            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\charac1"), 1.0f, 1.0f, 1.0f, new Vector2(0, 100)));
-            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\charac2"), 1.0f, 1.0f, 2.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - (650 * scale), 100)));
-            //tile
             this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("wheat_tile"), 1.0f, Utility.scale, 42.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 75, -1000)));
             //Option Button
             this.Menu = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu"), GameState.Menue, "Menu", pm);
             this.Menu.GetComponent<Transform>().Position = new Vector2(860, 790);
             this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu"), 1.0f, 1.0f, 43.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 100, -800)));
 
-            this.play = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_start"), GameState.GameStart, "play", pm);
-            this.play.GetComponent<Transform>().Position = new Vector2((730 * scale), (400 * scale));
-            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_start"), 1.0f, 1.0f, 3.0f, new Vector2((730 * scale), (400 * scale))));
 
-            this.howTo = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_howto"), GameState.HowTo, "howTo", pm);
-            this.howTo.GetComponent<Transform>().Position = new Vector2((730 * scale), (500 * scale));
-            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_howto"), 1.0f, 1.0f, 3.0f, new Vector2((730 * scale), (500 * scale))));
-
-            this.option = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_option"), GameState.Options, "option", pm);
-            this.option.GetComponent<Transform>().Position = new Vector2((730 * scale), (600 * scale));
-            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_option"), 1.0f, 1.0f, 3.0f, new Vector2((730 * scale), (600 * scale))));
-
-            this.credits = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_credits"), GameState.Credits, "Credits", pm);
-            this.credits.GetComponent<Transform>().Position = new Vector2((730 * scale), (700 * scale));
-            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_credits"), 1.0f, 1.0f, 3.0f, new Vector2((730 * scale), (700 * scale))));
-
-            this.exit = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_exit"), GameState.Exit, "exit", pm);
-            this.exit.GetComponent<Transform>().Position = new Vector2((730 * scale), (800 * scale));
-            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_exit"), 1.0f, 1.0f, 3.0f, new Vector2((730 * scale), (800 * scale))));
-
+            LoadState(Utility.button.state);
 
 
             EventManager.OnUpdate += Update;
+        }
+
+        public void LoadState(GameState state)
+        {
+            if (state == GameState.Menue)
+            {
+                this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\MenueBackground"), 1.0f, 0.35f, 0.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 350 * (scale), 0)));
+                this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\charac1"), 1.0f, 1.0f, 1.0f, new Vector2(0, 100)));
+                this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\charac2"), 1.0f, 1.0f, 2.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - (650 * scale), 100)));
+                this.play = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_start"), GameState.GameStart, "play", pm);
+                this.play.GetComponent<Transform>().Position = new Vector2((730 * scale), (400 * scale));
+                this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_start"), 1.0f, 1.0f, 3.0f, new Vector2((730 * scale), (400 * scale))));
+
+                this.howTo = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_howto"), GameState.HowTo, "howTo", pm);
+                this.howTo.GetComponent<Transform>().Position = new Vector2((730 * scale), (500 * scale));
+                this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_howto"), 1.0f, 1.0f, 3.0f, new Vector2((730 * scale), (500 * scale))));
+
+                this.option = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_option"), GameState.Options, "option", pm);
+                this.option.GetComponent<Transform>().Position = new Vector2((730 * scale), (600 * scale));
+                this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_option"), 1.0f, 1.0f, 3.0f, new Vector2((730 * scale), (600 * scale))));
+
+                this.credits = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_credits"), GameState.Credits, "Credits", pm);
+                this.credits.GetComponent<Transform>().Position = new Vector2((730 * scale), (700 * scale));
+                this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_credits"), 1.0f, 1.0f, 3.0f, new Vector2((730 * scale), (700 * scale))));
+
+                this.exit = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_exit"), GameState.Exit, "exit", pm);
+                this.exit.GetComponent<Transform>().Position = new Vector2((730 * scale), (800 * scale));
+                this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_exit"), 1.0f, 1.0f, 3.0f, new Vector2((730 * scale), (800 * scale))));
+                
+            }
+            else if (state == GameState.GameStart)
+            {
+               this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\MenueBackground"), 1.0f, 0.35f, 55.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 + (1050 * scale), 0)));
+            }
         }
 
         public void Update(GameTime gt)

@@ -35,6 +35,7 @@ namespace FightTheEvilOverlord
         private Transform transform;
         private MouseMenueInteractive mouse;
         public GameState state;
+        public bool isActive;
 
         float scale;
 
@@ -52,6 +53,11 @@ namespace FightTheEvilOverlord
             this.mouse.OnClick += OnClick;
             this.mouse.start();
             EventManager.OnRender += Render;
+        }
+
+        public Button(GameState gameState)
+        {
+            this.state = gameState;
         }
 
         private void Render(SpriteBatch spriteBatch)
@@ -81,11 +87,11 @@ namespace FightTheEvilOverlord
         private void OnClick(int x, int y)
         {
 
-
             if (this.state == GameState.GameStart)
             {
                 this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
-                Utility.startGame();
+                this.pm.goRight();
+                //Utility.startGame();
             }
             else if (this.state == GameState.HowTo)
             {
@@ -102,8 +108,7 @@ namespace FightTheEvilOverlord
             else if (this.state == GameState.Menue)
             {
                 this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
-
-                Menue menu = new Menue();
+                Utility.menue.LoadState(state);
             }
             else if (this.state == GameState.Options)
             {

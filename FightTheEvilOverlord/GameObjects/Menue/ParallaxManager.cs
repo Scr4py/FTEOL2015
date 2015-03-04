@@ -23,6 +23,7 @@ namespace FightTheEvilOverlord
 
         bool hasToFuckUp;
         bool hasToFuckDown;
+        bool hastToFuckRight;
 
         float scale;
 
@@ -149,6 +150,41 @@ namespace FightTheEvilOverlord
             }
         }
 
+        public void goRight()
+        {
+            hasToFuckUp = false;
+            hasToFuckDown = false;
+            hastToFuckRight = true;
+            EventManager.OnRender -= Draw;
+            if (hastToFuckRight)
+            {
+               EventManager.OnRender += DrawRightBanner; 
+            }
+            else
+            {
+                EventManager.OnRender -= DrawRightBanner; 
+            }
+        }
+
+        private void DrawRightBanner(SpriteBatch spriteBatch)
+        {
+            foreach (var layer in this.Layers)
+            {
+                if (layer.speed == 55.0f)
+                {
+                    if (layer.Position.X >= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 345 && layer.Position.Y == 0)
+                    {
+                        layer.Position = new Vector2(layer.Position.X - 8, layer.Position.Y);
+                        spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
+                    }
+                    else
+                    {
+                        spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
+                    }
+                }
+            }
+        }
+
         public void HowTo()
         {
             hasToFuckUp = false;
@@ -161,7 +197,7 @@ namespace FightTheEvilOverlord
             else
             {
                 EventManager.OnRender -= DrawHowTo;
-                ;
+                
             }
         }
 
