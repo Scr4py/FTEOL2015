@@ -15,7 +15,7 @@ namespace FightTheEvilOverlord
             this.fightManager = GameObject.GetComponent<FightManager>();
         }
 
-        public void checkNextTiles(Map map)
+        public void HardKIMovement(Map map)
         {
             foreach (Tile  tile  in map.tilesArray)
             {
@@ -40,9 +40,15 @@ namespace FightTheEvilOverlord
                                     if (tile.isActive)
                                     {
                                         checkFourthCircleNextTiles(tile);
+
                                         if (tile.isActive)
                                         {
-                                            baseMove(tile, map);
+                                            collectUnits(tile);
+
+                                            if (tile.isActive)
+                                            {
+                                                baseMove(tile, map);
+                                            }
                                         }
                                     }
                                 }
@@ -307,6 +313,67 @@ namespace FightTheEvilOverlord
                                 MoveSoldiers(currentTile, map.tilesArray[currentTile.mapX - 1, currentTile.mapY + 1]);
                             }
                         }
+                    }
+                }
+            }
+        }
+
+        void collectUnits(Tile currentTile)
+        {
+            foreach (var tile in currentTile.nextTiles)
+            {
+                if (currentTile.archer != null)
+                {
+                    if (tile.archer != null)
+                    {
+                        MoveSoldiers(currentTile, tile);
+                        tile.isActive = false;
+                    }
+                    else if (tile.pigs != null)
+                    {
+                        tile.isActive = false;
+                        MoveSoldiers(currentTile, tile);
+                    }
+                    else if (tile.swords != null)
+                    {
+                        MoveSoldiers(currentTile, tile);
+                        tile.isActive = false;
+                    }
+                }
+                else if (currentTile.pigs != null)
+                {
+                    if (tile.archer != null)
+                    {
+                        MoveSoldiers(currentTile, tile);
+                        tile.isActive = false;
+                    }
+                    else if (tile.pigs != null)
+                    {
+                        MoveSoldiers(currentTile, tile);
+                        tile.isActive = false;
+                    }
+                    else if (tile.swords != null)
+                    {
+                        MoveSoldiers(currentTile, tile);
+                        tile.isActive = false;
+                    }
+                }
+                else if (currentTile.swords != null)
+                {
+                    if (tile.archer != null)
+                    {
+                        MoveSoldiers(currentTile, tile);
+                        tile.isActive = false;
+                    }
+                    else if (tile.pigs != null)
+                    {
+                        MoveSoldiers(currentTile, tile);
+                        tile.isActive = false;
+                    }
+                    else if (tile.swords != null)
+                    {
+                        MoveSoldiers(currentTile, tile);
+                        tile.isActive = false;
                     }
                 }
             }
