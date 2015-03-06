@@ -53,7 +53,6 @@ namespace FightTheEvilOverlord
 
             Utility.CurrentGraphicsDevice = this.GraphicsDevice;
             Utility.CurrentContent = this.Content;
-            Utility.button = new Button(GameState.Menue);
 
             Utility.menue = new Menue();
             Utility.map = this.map;
