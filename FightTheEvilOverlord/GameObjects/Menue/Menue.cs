@@ -72,24 +72,24 @@ namespace FightTheEvilOverlord
             
             //How to Buttons
             this.Field = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_boardlayout"), GameState.Field, "Field", pm);
-            this.Field.GetComponent<Transform>().Position = new Vector2(200, 900);
+            this.Field.GetComponent<Transform>().Position = new Vector2((200*scale), (510*scale));
             this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_boardlayout"), 1.0f, 1.0f, 39.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 6 - 120, 2000)));
             this.Fight = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_fight"), GameState.Fight, "Fight", pm);
-            this.Fight.GetComponent<Transform>().Position = new Vector2(200, 750);
+            this.Fight.GetComponent<Transform>().Position = new Vector2((200 * scale), (560 * scale));
             this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_fight"), 1.0f, 1.0f, 40.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 6 - 120, 2000)));
             this.Village = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_village"), GameState.Villages, "village", pm);
-            this.Village.GetComponent<Transform>().Position = new Vector2(200, 800);
+            this.Village.GetComponent<Transform>().Position = new Vector2((200 * scale), (605 * scale));
             this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_village"), 1.0f, 1.0f, 41.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 6 - 120, 2000)));
 
             this.Movement = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_movement"), GameState.Move, "Movement", pm);
-            this.Movement.GetComponent<Transform>().Position = new Vector2(1500, 700);
-            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_movement"), 1.0f, 1.0f, 39.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 1.28f, 2000)));
+            this.Movement.GetComponent<Transform>().Position = new Vector2((1500 * scale), (510 * scale));
+            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_movement"), 1.0f, 1.0f, 42.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 1.28f, 2000)));
             this.TileColor = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_tilecolor"), GameState.TileColor, "TileColor", pm);
-            this.TileColor.GetComponent<Transform>().Position = new Vector2(1500, 750);
-            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_tilecolor"), 1.0f, 1.0f, 40.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 1.28f, 2000)));
+            this.TileColor.GetComponent<Transform>().Position = new Vector2((1500 * scale), (560 * scale));
+            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_tilecolor"), 1.0f, 1.0f, 43.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 1.28f, 2000)));
             this.Slider = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_slider"), GameState.Slider, "Slider", pm);
-            this.Slider.GetComponent<Transform>().Position = new Vector2(1500, 800);
-            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_slider"), 1.0f, 1.0f, 41.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 1.28f, 2000)));
+            this.Slider.GetComponent<Transform>().Position = new Vector2((1500 * scale), (605 * scale));
+            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_slider"), 1.0f, 1.0f, 44.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 1.28f, 2000)));
             this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\Test1"), 0.35f, 0.35f, 1.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - (100 * scale), 1800)));
 
 

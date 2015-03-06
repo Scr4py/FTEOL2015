@@ -168,7 +168,7 @@ namespace FightTheEvilOverlord
             {
                 this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
 
-                Menue menu = new Menue();
+                this.pm.DrawMenu();
             }
             else if (this.state == GameState.Cancel)
             {
