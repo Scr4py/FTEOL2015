@@ -342,8 +342,6 @@ C:\Users\Max\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug
 C:\Users\Max\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\MenuGraphics\button_slider.png
 C:\Users\Max\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\MenuGraphics\button_tilecolor.png
 C:\Users\Max\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\MenuGraphics\button_village.png
-C:\Users\Max\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\MenuGraphics\charac1.png
-C:\Users\Max\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\MenuGraphics\charac2.png
 C:\Users\Max\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\HudGraphics\bow_unit_hud.png
 C:\Users\Max\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\Button.png
 C:\Users\Max\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\HudGraphics\button_endturn.png
@@ -454,3 +452,4 @@ C:\Users\Scrapy\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\De
 C:\Users\Scrapy\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Tao.Sdl.dll
 C:\Users\Scrapy\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\obj\x86\Debug\FightTheEvilOverlord.csprojResolveAssemblyReference.cache
 C:\Users\Scr4py\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\MenuGraphics\säule.png
+C:\Users\Max\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\MenuGraphics\säule.png

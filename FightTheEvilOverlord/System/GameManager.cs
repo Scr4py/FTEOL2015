@@ -94,7 +94,7 @@ namespace FightTheEvilOverlord
                 Utility.ActivePlayerNumber++;
                 setSoldiersToActive();
                 setVillagesToActive();
-                kit.checkNextTiles(map);
+                //kit.checkNextTiles(map);
                 if (overlord.KIControlled)
                 {
                     ki.GetActiveTiles(map);

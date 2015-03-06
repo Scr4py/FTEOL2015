@@ -40,9 +40,15 @@ namespace FightTheEvilOverlord
                                     if (tile.isActive)
                                     {
                                         checkFourthCircleNextTiles(tile);
+
                                         if (tile.isActive)
                                         {
-                                            baseMove(tile, map);
+                                            collectUnits(tile);
+
+                                            if (tile.isActive)
+                                            {
+                                                baseMove(tile, map);
+                                            }
                                         }
                                     }
                                 }
@@ -233,6 +239,37 @@ namespace FightTheEvilOverlord
             }
         }
 
+        void collectUnits(Tile currentTile)
+        {
+            foreach (var nextTile in currentTile.nextTiles)
+            {
+                if (currentTile.archer != null)
+                {
+                    if (nextTile.archer != null)
+                    {
+                        MoveSoldiers(currentTile, nextTile);
+                        nextTile.isActive = false;
+                    }
+                }
+                else if (currentTile.pigs != null)
+                {
+                    if (nextTile.pigs != null)
+                    {
+                        MoveSoldiers(currentTile, nextTile);
+                        nextTile.isActive = false;
+                    }
+                }
+                else if (currentTile.swords != null)
+                {
+                    if (nextTile.swords != null)
+                    {
+                        MoveSoldiers(currentTile, nextTile);
+                        nextTile.isActive = false;
+                    }
+                }
+            }
+        }
+
         void baseMove(Tile currentTile, Map map)
         {
             if (currentTile.mapX % 2 == 0)
@@ -328,24 +365,93 @@ namespace FightTheEvilOverlord
         {
             if (currentTile.archer != null)
             {
-                nextTile.archer = new Archer(nextTile, Utility.ActivePlayerNumber, 0, currentTile.archer.activeSoldiers, currentTile.archer.image, Utility.EvilOverLord);
-                currentTile.owner = 4;
-                currentTile.archer.Destroy();
-                currentTile.archer = null;
+                if (nextTile.archer == null)
+                {
+                    nextTile.archer = new Archer(nextTile, Utility.ActivePlayerNumber, 0, currentTile.archer.activeSoldiers, currentTile.archer.image, Utility.EvilOverLord);
+                    currentTile.archer.totalSoldiers -= currentTile.archer.activeSoldiers;
+
+                    if (currentTile.archer.totalSoldiers == 0)
+                    {
+                        currentTile.owner = 4;
+                        currentTile.archer.Destroy();
+                        currentTile.archer = null;
+                    }
+                }
+                else if (nextTile.archer != null)
+                {
+                    if (nextTile.archer.playerNumber == Utility.ActivePlayerNumber)
+                    {
+                        nextTile.archer.totalSoldiers += currentTile.archer.activeSoldiers;
+                        currentTile.archer.totalSoldiers -= currentTile.archer.activeSoldiers;
+
+                        if (currentTile.archer.totalSoldiers == 0)
+                        {
+                            currentTile.owner = 4;
+                            currentTile.archer.Destroy();
+                            currentTile.archer = null;
+                        }
+                    }
+                }
             }
             else if (currentTile.pigs != null)
             {
-                nextTile.pigs = new FlyingPigs(nextTile, Utility.ActivePlayerNumber, 0, currentTile.pigs.activeSoldiers, currentTile.pigs.image, Utility.EvilOverLord);
-                currentTile.owner = 4;
-                currentTile.pigs.Destroy();
-                currentTile.pigs = null;
+                if (nextTile.pigs == null)
+                {
+                    nextTile.pigs = new FlyingPigs(nextTile, Utility.ActivePlayerNumber, 0, currentTile.pigs.activeSoldiers, currentTile.pigs.image, Utility.EvilOverLord);
+                    currentTile.pigs.totalSoldiers -= currentTile.pigs.activeSoldiers;
+
+                    if (currentTile.pigs.totalSoldiers == 0)
+                    {
+                        currentTile.owner = 4;
+                        currentTile.pigs.Destroy();
+                        currentTile.pigs = null;
+                    }
+                }
+                else if (nextTile.pigs != null)
+                {
+                    if (nextTile.pigs.playerNumber == Utility.ActivePlayerNumber)
+                    {
+                        nextTile.pigs.totalSoldiers += currentTile.pigs.activeSoldiers;
+                        currentTile.pigs.totalSoldiers -= currentTile.pigs.activeSoldiers;
+
+                        if (currentTile.pigs.totalSoldiers == 0)
+                        {
+                            currentTile.owner = 4;
+                            currentTile.pigs.Destroy();
+                            currentTile.pigs = null;
+                        }
+                    }
+                }
             }
             else if (currentTile.swords != null)
             {
-                nextTile.swords = new SwordsMen(nextTile, Utility.ActivePlayerNumber, 0, currentTile.swords.activeSoldiers, currentTile.swords.image, Utility.EvilOverLord);
-                currentTile.owner = 4;
-                currentTile.swords.Destroy();
-                currentTile.swords = null;
+                if (nextTile.swords == null)
+                {
+                    nextTile.swords = new SwordsMen(nextTile, Utility.ActivePlayerNumber, 0, currentTile.swords.activeSoldiers, currentTile.swords.image, Utility.EvilOverLord);
+                    currentTile.swords.totalSoldiers -= currentTile.swords.activeSoldiers;
+
+                    if (currentTile.swords.totalSoldiers == 0)
+                    {
+                        currentTile.owner = 4;
+                        currentTile.swords.Destroy();
+                        currentTile.swords = null;
+                    }
+                }
+                else if (nextTile.swords != null)
+                {
+                    if (nextTile.swords.playerNumber == Utility.ActivePlayerNumber)
+                    {
+                        nextTile.swords.totalSoldiers += currentTile.swords.activeSoldiers;
+                        currentTile.swords.totalSoldiers -= currentTile.swords.activeSoldiers;
+
+                        if (currentTile.swords.totalSoldiers == 0)
+                        {
+                            currentTile.owner = 4;
+                            currentTile.swords.Destroy();
+                            currentTile.pigs = null;
+                        }
+                    }
+                }
             }
         }
 

@@ -448,23 +448,23 @@ namespace FightTheEvilOverlord
             {
                 if (village != null)
                 {
-                    if ((int)village.transform.Position.X % 2 == 0)
+                    if (village.mapX % 2 == 0)
                     {
-                        village.nextTiles.Add(tilesArray[(int)village.mapX + 1, (int)village.mapY]);
-                        village.nextTiles.Add(tilesArray[(int)village.mapX - 1, (int)village.mapY]);
-                        village.nextTiles.Add(tilesArray[(int)village.mapX, (int)village.mapY + 1]);
-                        village.nextTiles.Add(tilesArray[(int)village.mapX, (int)village.mapY - 1]);
-                        village.nextTiles.Add(tilesArray[(int)village.mapX + 1, (int)village.mapY + 1]);
-                        village.nextTiles.Add(tilesArray[(int)village.mapX - 1, (int)village.mapY + 1]);
+                        village.nextTiles.Add(tilesArray[village.mapX + 1, village.mapY - 1]);
+                        village.nextTiles.Add(tilesArray[village.mapX + 1, village.mapY]);
+                        village.nextTiles.Add(tilesArray[village.mapX - 1, village.mapY]);
+                        village.nextTiles.Add(tilesArray[village.mapX - 1, village.mapY - 1]);
+                        village.nextTiles.Add(tilesArray[village.mapX, village.mapY + 1]);
+                        village.nextTiles.Add(tilesArray[village.mapX, village.mapY - 1]);
                     }
                     else
                     {
-                        village.nextTiles.Add(tilesArray[(int)village.mapX - 1, (int)village.mapY + 1]);
-                        village.nextTiles.Add(tilesArray[(int)village.mapX + 1, (int)village.mapY]);
-                        village.nextTiles.Add(tilesArray[(int)village.mapX - 1, (int)village.mapY]);
-                        village.nextTiles.Add(tilesArray[(int)village.mapX, (int)village.mapY + 1]);
-                        village.nextTiles.Add(tilesArray[(int)village.mapX, (int)village.mapY - 1]);
-                        village.nextTiles.Add(tilesArray[(int)village.mapX + 1, (int)village.mapY + 1]);
+                        village.nextTiles.Add(tilesArray[village.mapX + 1, village.mapY + 1]);
+                        village.nextTiles.Add(tilesArray[village.mapX + 1, village.mapY]);
+                        village.nextTiles.Add(tilesArray[village.mapX - 1, village.mapY]);
+                        village.nextTiles.Add(tilesArray[village.mapX - 1, village.mapY + 1]);
+                        village.nextTiles.Add(tilesArray[village.mapX, village.mapY + 1]);
+                        village.nextTiles.Add(tilesArray[village.mapX, village.mapY - 1]);
                     }
                 }
             }
