@@ -183,7 +183,6 @@ namespace FightTheEvilOverlord
                 EventManager.OnRender -= Draw;
             }
         }
-       
 
         private void DrawHowTo(SpriteBatch spriteBatch)
         {

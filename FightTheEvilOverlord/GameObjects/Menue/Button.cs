@@ -35,8 +35,6 @@ namespace FightTheEvilOverlord
         private Transform transform;
         private MouseMenueInteractive mouse;
         public GameState state;
-        private bool showMenuButtons = false;
-
         float scale;
 
         ParallaxManager pm;
@@ -81,40 +79,36 @@ namespace FightTheEvilOverlord
 
         private void OnClick(int x, int y)
         {
-
-                if (this.state == GameState.GameStart)
-                {
-                    this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
-                    Utility.startGame();
-                }
-                else if (this.state == GameState.HowTo)
-                {
-                    this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
-                    pm.goDown();
-                    pm.HowTo();
-                    showMenuButtons = true;
-                }
+            if (this.state == GameState.GameStart)
+            {
+                this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
+                Utility.startGame();
+            }
+            else if (this.state == GameState.HowTo)
+            {
+                this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
+                pm.goDown();
+                pm.HowTo();
+            }
 
 
-                else if (this.state == GameState.Options)
-                {
-                    this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
+            else if (this.state == GameState.Options)
+            {
+                this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
 
-                    pm.goUp();
-                }
+                pm.goUp();
+            }
 
-                else if (this.state == GameState.Exit)
-                {
-                    this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
+            else if (this.state == GameState.Exit)
+            {
+                this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
+                Environment.Exit(0);
+            }
+            else if (this.state == GameState.Credits)
+            {
+                this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
 
-                    Environment.Exit(0);
-                }
-                else if (this.state == GameState.Credits)
-                {
-                    this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
-
-                    Console.WriteLine("Credits Test");
-                }
+            }
             else if (this.state == GameState.Field)
             {
                 this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
@@ -167,8 +161,7 @@ namespace FightTheEvilOverlord
             else if (this.state == GameState.Menue)
             {
                 this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
-
-                this.pm.DrawMenu();
+                pm.DrawMenu();
             }
             else if (this.state == GameState.Cancel)
             {
