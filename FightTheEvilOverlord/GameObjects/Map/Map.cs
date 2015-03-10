@@ -106,8 +106,8 @@ namespace FightTheEvilOverlord
 
         public void generateVillages()
         {
-            RemoveTile(mapWidth / 5, mapHeight / 5);
-            villageArray[mapWidth / 5, mapHeight / 5] = new Village(texVillage, mapWidth / 5, mapHeight / 5, pigTex, archerTex, swordTex, moveX);
+            RemoveTile(mapWidth / 4, mapHeight / 4);
+            villageArray[mapWidth / 4, mapHeight / 4] = new Village(texVillage, mapWidth / 4, mapHeight / 4, pigTex, archerTex, swordTex, moveX);
 
             RemoveTile(mapWidth / 2, mapHeight / 2);
             villageArray[mapWidth / 2, mapHeight / 2] = new Village(texVillage, mapWidth / 2, mapHeight / 2, pigTex, archerTex, swordTex, moveX);
