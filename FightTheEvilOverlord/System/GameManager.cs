@@ -42,6 +42,11 @@ namespace FightTheEvilOverlord
             EventManager.OnUpdate += OnUpdate;
 
             setSoldiersToActive();
+
+            //archer.KIControlled = true;
+            //pig.KIControlled = true;
+            //swords.KIControlled = true;
+            overlord.KIControlled = true;
         }
 
         private void OnUpdate(GameTime gameTime)
@@ -56,6 +61,39 @@ namespace FightTheEvilOverlord
             {
                 NextPlayer();
             }
+
+            if (Utility.ActivePlayerNumber == 0 && archer.KIControlled == true)
+            {
+                kit.checkNextTiles(map);
+                if (kit.activeTiles == 0)
+                {
+                    NextPlayer();
+                }
+            }
+            else if (Utility.ActivePlayerNumber == 1 && pig.KIControlled == true)
+            {
+                kit.checkNextTiles(map);
+                if (kit.activeTiles == 0)
+                {
+                    NextPlayer();
+                }
+            }
+            else if (Utility.ActivePlayerNumber == 2 && swords.KIControlled == true)
+            {
+                kit.checkNextTiles(map);
+                if (kit.activeTiles == 0)
+                {
+                    NextPlayer();
+                }
+            }
+            else if (Utility.ActivePlayerNumber == 3 && overlord.KIControlled == true)
+            {
+                kit.checkNextTiles(map);
+                if (kit.activeTiles == 0)
+                {
+                    NextPlayer();
+                }
+            }
         }
 
         public void NextPlayer()
@@ -67,11 +105,6 @@ namespace FightTheEvilOverlord
                 Utility.ActivePlayerNumber++;
                 setSoldiersToActive();
                 setVillagesToActive();
-
-                if (pig.KIControlled)
-                {
-                    ki.GetActiveTiles(map);
-                }
             }
             else if (Utility.ActivePlayerNumber == 1)
             {
@@ -80,11 +113,6 @@ namespace FightTheEvilOverlord
                 Utility.ActivePlayerNumber++;
                 setSoldiersToActive();
                 setVillagesToActive();
-
-                if (swords.KIControlled)
-                {
-                    ki.GetActiveTiles(map);
-                }
             }
             else if (Utility.ActivePlayerNumber == 2)
             {
@@ -94,11 +122,6 @@ namespace FightTheEvilOverlord
                 Utility.ActivePlayerNumber++;
                 setSoldiersToActive();
                 setVillagesToActive();
-                //kit.checkNextTiles(map);
-                if (overlord.KIControlled)
-                {
-                    ki.GetActiveTiles(map);
-                }
             }
             else if (Utility.ActivePlayerNumber == 3)
             {
@@ -107,11 +130,6 @@ namespace FightTheEvilOverlord
                 Utility.ActivePlayerNumber = 0;
                 setSoldiersToActive();
                 setVillagesToActive();
-
-                if (archer.KIControlled)
-                {
-                    ki.GetActiveTiles(map);
-                }
             }
         }
 
