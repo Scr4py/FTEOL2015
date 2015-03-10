@@ -30,7 +30,7 @@ namespace FightTheEvilOverlord
         {
             for (int i = 0; i < imageList.Count; i++)
             {
-                spriteBatch.Draw(imageList[i], imageVectorList[i], null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 0);
+                spriteBatch.Draw(imageList[i], (imageVectorList[i]*Utility.globalScale), null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 0);
             }
 
         }
