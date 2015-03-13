@@ -43,9 +43,9 @@ namespace FightTheEvilOverlord
 
             setSoldiersToActive();
 
-            //archer.KIControlled = true;
-            //pig.KIControlled = true;
-            //swords.KIControlled = true;
+            archer.KIControlled = true;
+            pig.KIControlled = true;
+            swords.KIControlled = true;
             overlord.KIControlled = true;
         }
 

@@ -73,7 +73,7 @@ namespace FightTheEvilOverlord
                     Tile tile = new Tile(getTileTexture(), x, y, Type, moveX);
                     MiniMapTile miniTile = new MiniMapTile(tile, miniField);
                     this.tilesArray[x, y] = tile;
-                    System.Threading.Thread.Sleep(2);
+                    System.Threading.Thread.Sleep(10);
                 }
             }
         }

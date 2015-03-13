@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Input;
 
 namespace FightTheEvilOverlord
 {
@@ -96,12 +97,23 @@ namespace FightTheEvilOverlord
 
             EventManager.OnUpdate += Update;
         }
-
+            
         public void Update(GameTime gt)
         {
+            KeyboardState ms = Keyboard.GetState();
+            if (ms.IsKeyDown(Keys.Escape))
+            {
+                pm.DrawMenu();
+            }
             if (Utility.map != null)
             {
                 this.Audio.StopMusic();
+                this.Menu.Destroy();
+                this.play.Destroy();
+                this.howTo.Destroy();
+                this.option.Destroy();
+                this.credits.Destroy();
+                this.exit.Destroy();
                 Utility.destroyMenue(this);
             }
         }

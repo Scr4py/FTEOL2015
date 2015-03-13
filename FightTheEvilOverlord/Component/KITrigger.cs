@@ -308,7 +308,7 @@ namespace FightTheEvilOverlord
                         {
                             if (map.tilesArray[currentTile.mapX + 1, currentTile.mapY + 1] != null)
                             {
-                                MoveSoldiers(currentTile, map.tilesArray[currentTile.mapX + 1, currentTile.mapY + 1]);
+                                MoveSoldiers(currentTile, map.tilesArray[currentTile.mapX + 1, currentTile.mapY - 1]);
                             }
                         }
                     }
@@ -325,7 +325,7 @@ namespace FightTheEvilOverlord
                         {
                             if (map.tilesArray[currentTile.mapX - 1, currentTile.mapY + 1] != null)
                             {
-                                MoveSoldiers(currentTile, map.tilesArray[currentTile.mapX - 1, currentTile.mapY + 1]);
+                                MoveSoldiers(currentTile, map.tilesArray[currentTile.mapX - 1, currentTile.mapY - 1]);
                             }
                         }
                     }
@@ -346,7 +346,7 @@ namespace FightTheEvilOverlord
                         {
                             if (map.tilesArray[currentTile.mapX + 1, currentTile.mapY - 1] != null)
                             {
-                                MoveSoldiers(currentTile, map.tilesArray[currentTile.mapX + 1, currentTile.mapY - 1]);
+                                MoveSoldiers(currentTile, map.tilesArray[currentTile.mapX + 1, currentTile.mapY + 1]);
                             }
                         }
                     }
@@ -363,7 +363,7 @@ namespace FightTheEvilOverlord
                         {
                             if (map.tilesArray[currentTile.mapX - 1, currentTile.mapY - 1] != null)
                             {
-                                MoveSoldiers(currentTile, map.tilesArray[currentTile.mapX - 1, currentTile.mapY - 1]);
+                                MoveSoldiers(currentTile, map.tilesArray[currentTile.mapX - 1, currentTile.mapY + 1]);
                             }
                         }
                     }

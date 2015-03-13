@@ -27,6 +27,17 @@ namespace FightTheEvilOverlord
 
         public void Attack(Tile attackerTile, Tile defenderTile)
         {
+            attackerNumber = 0;
+            defenderNumber = 0;
+            attackerType = 0;
+            defenderType = 0;
+            attackerPower = 0;
+            defenderPower = 0;
+            attackerBonus = 1;
+            defenderBonus = 1;
+            remainingAttackers = 0;
+            remainingDefenders = 0;
+
             this.attackerTile = attackerTile;
             this.defenderTile = defenderTile;
             getFighter();
