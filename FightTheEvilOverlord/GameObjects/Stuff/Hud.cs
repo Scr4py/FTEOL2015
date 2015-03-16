@@ -27,9 +27,10 @@ namespace FightTheEvilOverlord
             this.hudRenderer = AddComponent<HudRender>();
             this.hudRenderer.SetBackGroundImage(hudTex);
             hudRenderer.SetFont(font);
-            hudRenderer.start();
+            hudRenderer.Start();
             prepareHud();
             EventManager.OnUpdate += hudRender;
+            WinningScreen.GameFinished += () => { menue.Destroy(); exit.Destroy(); nextPlayer.Destroy(); Destroy(); };
         }
 
         private void prepareHud()

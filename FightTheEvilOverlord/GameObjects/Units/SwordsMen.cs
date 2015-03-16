@@ -48,7 +48,7 @@ namespace FightTheEvilOverlord
             this.render = this.AddComponent<UnitRenderer>();
             this.transform.Position = this.transform.Position = new Vector2((this.tile.transform.Position.X) + ((1448 * Renderer.scale) / 2) - ((image.Width * UnitRenderer.scale) / 2), (this.tile.transform.Position.Y) + ((1252 * Renderer.scale) / 2) - ((image.Height * UnitRenderer.scale) / 2));
             this.render.SetImage(image);
-            this.render.start();
+            this.render.Start();
             this.fightManager = this.AddComponent<FightManager>();
         }
 
@@ -280,6 +280,15 @@ namespace FightTheEvilOverlord
                 //swordsMen.tile.swords = null;
                 swordsMen = null;
             }
+        }
+
+        public override void Destroy()
+        {
+            transform.Destroy();
+            fightManager.Destroy();
+            render.Destroy();
+            EventManager.OnUpdate -= Draw;
+            base.Destroy();
         }
     }
 }

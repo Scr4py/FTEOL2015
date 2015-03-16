@@ -40,8 +40,9 @@ namespace FightTheEvilOverlord
             this.unitRender = this.AddComponent<UnitRenderer>();
             this.transform.Position = new Vector2((tile.transform.Position.X) + ((1448 * Renderer.scale) / 2) - ((image.Width * UnitRenderer.scale) / 2), (tile.transform.Position.Y) + ((1252 * Renderer.scale) / 2) - ((image.Height * UnitRenderer.scale) / 2));
             this.unitRender.SetImage(image);
-            this.unitRender.start();
+            this.unitRender.Start();
             EventManager.OnUpdate += OnUpdate;
+            WinningScreen.GameFinished += () => { Destroy(); };
         }
 
         void OnUpdate(GameTime gameTime)
@@ -94,5 +95,10 @@ namespace FightTheEvilOverlord
             }
         }
 
+        public override void Destroy()
+        {
+            EventManager.OnUpdate -= OnUpdate;
+            base.Destroy();
+        }
     }
 }

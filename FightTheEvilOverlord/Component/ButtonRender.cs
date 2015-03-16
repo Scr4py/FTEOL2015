@@ -16,7 +16,7 @@ namespace FightTheEvilOverlord
 
         Transform transform;
 
-        public void start()
+        public void Start()
         {
             this.transform = GameObject.GetComponent<Transform>();
             EventManager.OnRender += Render;

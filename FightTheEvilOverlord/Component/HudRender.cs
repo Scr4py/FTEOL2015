@@ -19,7 +19,7 @@ namespace FightTheEvilOverlord
         public List<string> textList = new List<string>();
         List<Vector2> vectorList = new List<Vector2>();
         List<Vector2> imageVectorList = new List<Vector2>();
-        public void start()
+        public void Start()
         {
             this.transform = this.GameObject.GetComponent<Transform>();
             EventManager.OnRender += hudRender;
@@ -73,6 +73,8 @@ namespace FightTheEvilOverlord
         public override void Destroy()
         {
             EventManager.OnRender -= hudRender;
+            EventManager.OnRender -= UnitPic;
+            base.Destroy();
         }
     }
 }

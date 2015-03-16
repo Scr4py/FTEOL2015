@@ -35,7 +35,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Background.cs" />
+    <Compile Include="GameObjects\Stuff\Background.cs" />
     <Compile Include="Component\Audio.cs" />
     <Compile Include="Component\CheckButtonPress.cs" />
     <Compile Include="Component\IntRenderer.cs" />

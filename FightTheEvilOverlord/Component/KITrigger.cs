@@ -9,7 +9,7 @@ namespace FightTheEvilOverlord
         public int activeTiles;
         FightManager fightManager;
         float timer;
-        public float delay = 1000;
+        public float delay = 000;
 
         Tile nextTile;
 
@@ -337,7 +337,7 @@ namespace FightTheEvilOverlord
             {
                 if (Utility.ActivePlayerNumber == 0 || Utility.ActivePlayerNumber == 1 || Utility.ActivePlayerNumber == 2)
                 {
-                    if (currentTile.mapX < map.mapWidth)
+                    if (currentTile.mapX < map.mapWidth - 1)
                     {
                         if (map.tilesArray[currentTile.mapX + 1, currentTile.mapY] != null)
                         {
@@ -643,6 +643,12 @@ namespace FightTheEvilOverlord
             {
                 return false;
             }
+        }
+
+        public override void Destroy()
+        {
+            EventManager.OnUpdate -= Update;
+            base.Destroy();
         }
     }
 }

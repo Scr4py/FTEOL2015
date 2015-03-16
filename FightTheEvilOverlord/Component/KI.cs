@@ -17,7 +17,7 @@ namespace FightTheEvilOverlord
         
         
 
-        public void start()
+        public void Start()
         {
             activeTiles = new List<Tile>();
         }
@@ -385,6 +385,11 @@ namespace FightTheEvilOverlord
                     }
                 }
             }
+        }
+
+        public override void Destroy()
+        {
+            base.Destroy();
         }
     }
 }

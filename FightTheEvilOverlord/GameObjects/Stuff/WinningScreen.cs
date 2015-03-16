@@ -7,6 +7,8 @@ namespace FightTheEvilOverlord
 {
     class WinningScreen : GameObject
     {
+        public static event Action GameFinished;
+
         Renderer render;
         Transform trans;
         float timer;
@@ -21,6 +23,8 @@ namespace FightTheEvilOverlord
             render.SecScale = 1;
             EventManager.OnUpdate += Update;
             DeactivateKI();
+            GameFinished();
+            Utility.map.Destroy();
         }
 
         private void DeactivateKI()
@@ -50,7 +54,7 @@ namespace FightTheEvilOverlord
             if (timer > delay)
             {
                 render.Destroy();
-                base.Destroy();
+                this.Destroy();
             }
         }
     }

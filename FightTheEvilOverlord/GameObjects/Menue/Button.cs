@@ -49,7 +49,7 @@ namespace FightTheEvilOverlord
             this.audio = AddComponent<Audio>();
             this.mouse.SetSize(image.Width, image.Height);
             this.mouse.OnClick += OnClick;
-            this.mouse.start();
+            this.mouse.Start();
             EventManager.OnRender += Render;
         }
 
@@ -74,7 +74,7 @@ namespace FightTheEvilOverlord
             this.audio = AddComponent<Audio>();
             this.mouse.SetSize(image.Width, image.Height);
             this.mouse.OnClick += OnClick;
-            this.mouse.start();
+            this.mouse.Start();
         }
 
         private void OnClick(int x, int y)
@@ -169,6 +169,16 @@ namespace FightTheEvilOverlord
 
                 Console.WriteLine("Cancel Test");
             }
+        }
+
+        public override void Destroy()
+        {
+            transform.Destroy();
+            mouse.Destroy();
+            audio.Destroy();
+            mouse.OnClick -= OnClick;
+            EventManager.OnRender -= Render;
+            base.Destroy();
         }
     }
 }

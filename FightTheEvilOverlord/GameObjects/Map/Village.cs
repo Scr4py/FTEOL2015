@@ -203,5 +203,13 @@ namespace FightTheEvilOverlord
                 return (y * 1252) + 628;
             }
         }
+
+        public override void Destroy()
+        {
+            transform.Destroy();
+            render.Destroy();
+            EventManager.OnUpdate -= Update;
+            base.Destroy();
+        }
     }
 }

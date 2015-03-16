@@ -18,7 +18,7 @@ namespace FightTheEvilOverlord
 
         public bool onMouse;
 
-        public void start()
+        public void Start()
         {
             this.transform = this.GameObject.GetComponent<Transform>();
             EventManager.OnUpdate += Update;
@@ -59,7 +59,7 @@ namespace FightTheEvilOverlord
         }
 
         private void UpdatePosition()
-        {
+         {
             this.mouseRectangle.X = (int)transform.Position.X;
             this.mouseRectangle.Y = (int)transform.Position.Y;
         }

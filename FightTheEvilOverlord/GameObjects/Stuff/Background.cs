@@ -17,11 +17,18 @@ namespace FightTheEvilOverlord
             this.transform = AddComponent<Transform>();
             this.image = image;
             EventManager.OnRender += Render;
+            WinningScreen.GameFinished += () => { Destroy(); };
         }
 
         private void Render(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(this.image, this.transform.Position, Color.White);
+        }
+
+        public override void Destroy()
+        {
+            EventManager.OnRender -= Render;
+            base.Destroy();
         }
     }
 }

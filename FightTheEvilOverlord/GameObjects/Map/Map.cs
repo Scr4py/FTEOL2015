@@ -60,6 +60,7 @@ namespace FightTheEvilOverlord
             getNextTiles();
             getNextVillages();
             getNextVillageTiles();
+            WinningScreen.GameFinished += () => { Destroy(); };
         }
 
 
@@ -619,5 +620,41 @@ namespace FightTheEvilOverlord
         //    this.font.SetText("Yolo");
         //    this.font.SetVector(new Vector2(40, 1038));
         //}
+
+        public override void Destroy()
+        {
+            foreach (var tile in tilesArray)
+            {
+                if (tile != null)
+                {
+                    if (tile.archer != null)
+                    {
+                        tile.archer.Destroy();
+                        tile.archer = null;
+                    }
+                    else if (tile.pigs != null)
+                    {
+                        tile.pigs.Destroy();
+                        tile.pigs = null;
+                    }
+                    else if (tile.swords != null)
+                    {
+                        tile.swords.Destroy();
+                        tile.swords = null;
+                    }
+                    tile.RemoveTile();
+                    tile.Destroy();
+                }
+            }
+
+            foreach (var village in villageArray)
+            {
+                if (village != null)
+                {
+                    village.Destroy();
+                }
+            }
+            base.Destroy();
+        }
     }
 }

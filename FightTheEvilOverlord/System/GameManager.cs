@@ -42,6 +42,7 @@ namespace FightTheEvilOverlord
             this.kit.Start();
             this.fightManager = this.AddComponent<FightManager>();
             EventManager.OnUpdate += OnUpdate;
+            WinningScreen.GameFinished += () => { DeactivateGameManager(); };
 
             setSoldiersToActive();
 
@@ -288,6 +289,11 @@ namespace FightTheEvilOverlord
                     }
                 }
             }
+        }
+
+        void DeactivateGameManager()
+        {
+            EventManager.OnUpdate -= OnUpdate;
         }
     }
 }

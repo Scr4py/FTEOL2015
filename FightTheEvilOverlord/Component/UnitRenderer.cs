@@ -16,7 +16,7 @@ namespace FightTheEvilOverlord
         int secIntToDisplay;
         Color intColor = Color.White;
         public Color PicColor = Color.White;
-        public void start()
+        public void Start()
         {
             this.transform = GameObject.GetComponent<Transform>();
             EventManager.OnRender += Render;
