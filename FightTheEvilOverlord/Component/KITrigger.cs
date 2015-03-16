@@ -92,6 +92,7 @@ namespace FightTheEvilOverlord
                     if (checkForStraightAttackableEnemys(baseTile, nextTile))
                     {
                         fightManager.Attack(baseTile, nextTile);
+                        baseTile.isActive = false;
                     }
                 }
             }
@@ -394,8 +395,7 @@ namespace FightTheEvilOverlord
                     nextTile.owner = Utility.ActivePlayerNumber;
                     currentTile.isActive = false;
 
-
-                    if (currentTile.archer.totalSoldiers <= 0)
+                    if (currentTile.archer.totalSoldiers == 0)
                     {
                         currentTile.owner = 4;
                         currentTile.archer.Destroy();
@@ -410,7 +410,7 @@ namespace FightTheEvilOverlord
                         currentTile.archer.totalSoldiers -= currentTile.archer.activeSoldiers;
                         currentTile.isActive = false;
 
-                        if (currentTile.archer.totalSoldiers <= 0)
+                        if (currentTile.archer.totalSoldiers == 0)
                         {
                             currentTile.owner = 4;
                             currentTile.archer.Destroy();
@@ -430,7 +430,7 @@ namespace FightTheEvilOverlord
                     currentTile.isActive = false;
 
 
-                    if (currentTile.pigs.totalSoldiers <= 0)
+                    if (currentTile.pigs.totalSoldiers == 0)
                     {
                         currentTile.owner = 4;
                         currentTile.pigs.Destroy();
@@ -445,7 +445,7 @@ namespace FightTheEvilOverlord
                         currentTile.pigs.totalSoldiers -= currentTile.pigs.activeSoldiers;
                         currentTile.isActive = false;
 
-                        if (currentTile.pigs.totalSoldiers <= 0)
+                        if (currentTile.pigs.totalSoldiers == 0)
                         {
                             currentTile.owner = 4;
                             currentTile.pigs.Destroy();
@@ -465,7 +465,7 @@ namespace FightTheEvilOverlord
                     currentTile.isActive = false;
 
 
-                    if (currentTile.swords.totalSoldiers <= 0)
+                    if (currentTile.swords.totalSoldiers == 0)
                     {
                         currentTile.owner = 4;
                         currentTile.swords.Destroy();
@@ -480,7 +480,7 @@ namespace FightTheEvilOverlord
                         currentTile.swords.totalSoldiers -= currentTile.swords.activeSoldiers;
                         currentTile.isActive = false;
 
-                        if (currentTile.swords.totalSoldiers <= 0)
+                        if (currentTile.swords.totalSoldiers == 0)
                         {
                             currentTile.owner = 4;
                             currentTile.swords.Destroy();

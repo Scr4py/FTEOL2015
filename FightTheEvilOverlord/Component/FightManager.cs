@@ -178,13 +178,16 @@ namespace FightTheEvilOverlord
                 if (attackerType == 0)
                 {
                     attackerTile.archer.totalSoldiers = (int)remainingAttackers;
+                    attackerTile.archer.activeSoldiers = (int)remainingAttackers;
                 }
                 else if (attackerType == 1)
                 {
+                    attackerTile.pigs.activeSoldiers = (int)remainingAttackers;
                     attackerTile.pigs.totalSoldiers = (int)remainingAttackers;
                 }
                 else if(attackerType == 2)
                 {
+                    attackerTile.swords.activeSoldiers = (int)remainingAttackers;
                     attackerTile.swords.totalSoldiers = (int)remainingAttackers;
                 }
                 if (defenderType == 0)
