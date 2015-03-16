@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace FightTheEvilOverlord
@@ -20,6 +21,7 @@ namespace FightTheEvilOverlord
         FightManager fightManager;
         KI ki;
         KITrigger kit;
+        WinningScreen winScreen;
 
         MouseState mouseState;
 
@@ -56,6 +58,7 @@ namespace FightTheEvilOverlord
             mouseState = Mouse.GetState();
             lastState = currentState;
             currentState = Keyboard.GetState();
+            checkIfGameFinished();
 
             if (currentState.IsKeyDown(Keys.N) && !lastState.IsKeyDown(Keys.N) && mouseState.LeftButton == ButtonState.Released && Utility.movementEngaged == false)
             {
@@ -130,6 +133,19 @@ namespace FightTheEvilOverlord
                 Utility.ActivePlayerNumber = 0;
                 setSoldiersToActive();
                 setVillagesToActive();
+            }
+        }
+
+        void checkIfGameFinished()
+        {
+            if (Utility.totalSoldiersGoodArch + Utility.totalSoldiersGoodPig + Utility.totalSoldiersGoodSword == 0)
+            {
+                winScreen = new WinningScreen(Utility.CurrentContent.Load<Texture2D>("BadWin"));
+            }
+
+            else if (Utility.totalSoldiersBadArch + Utility.totalSoldiersBadPig + Utility.totalSoldiersBadSword == 0)
+            {
+                winScreen = new WinningScreen(Utility.CurrentContent.Load<Texture2D>("GoodWin"));
             }
         }
 

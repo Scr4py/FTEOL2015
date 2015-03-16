@@ -50,6 +50,7 @@
     <Compile Include="GameObjects\Menue\ParallaxManager.cs" />
     <Compile Include="GameObjects\Stuff\Slider.cs" />
     <Compile Include="GameObjects\Stuff\SliderBar.cs" />
+    <Compile Include="GameObjects\Stuff\WinningScreen.cs" />
     <Compile Include="System\Camera.cs" />
     <Compile Include="Component\FightManager.cs" />
     <Compile Include="System\Utility.cs" />
@@ -104,10 +105,16 @@
     <Content Include="Content\Background-Test.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\BadWin.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\bow_unit.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\cursor.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\GoodWin.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\MenuGraphics\button_boardlayout.png">

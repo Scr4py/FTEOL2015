@@ -514,3 +514,5 @@ C:\Users\Lucas\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Deb
 C:\Users\Lucas\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\OpenTK.dll
 C:\Users\Lucas\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Tao.Sdl.dll
 C:\Users\Lucas\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\obj\x86\Debug\FightTheEvilOverlord.csprojResolveAssemblyReference.cache
+C:\Users\Max\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\BadWin.png
+C:\Users\Max\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\GoodWin.png

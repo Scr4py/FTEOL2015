@@ -9,7 +9,7 @@ namespace FightTheEvilOverlord
         public int activeTiles;
         FightManager fightManager;
         float timer;
-        public float delay = 1000;
+        public float delay = 000;
 
         Tile nextTile;
 
@@ -395,12 +395,9 @@ namespace FightTheEvilOverlord
                     nextTile.owner = Utility.ActivePlayerNumber;
                     currentTile.isActive = false;
 
-                    if (currentTile.archer.totalSoldiers == 0)
-                    {
                         currentTile.owner = 4;
                         currentTile.archer.Destroy();
                         currentTile.archer = null;
-                    }
                 }
                 else if (nextTile.archer != null)
                 {
@@ -410,12 +407,9 @@ namespace FightTheEvilOverlord
                         currentTile.archer.totalSoldiers -= currentTile.archer.activeSoldiers;
                         currentTile.isActive = false;
 
-                        if (currentTile.archer.totalSoldiers == 0)
-                        {
                             currentTile.owner = 4;
                             currentTile.archer.Destroy();
                             currentTile.archer = null;
-                        }
                     }
                 }
             }
@@ -430,12 +424,9 @@ namespace FightTheEvilOverlord
                     currentTile.isActive = false;
 
 
-                    if (currentTile.pigs.totalSoldiers == 0)
-                    {
                         currentTile.owner = 4;
                         currentTile.pigs.Destroy();
                         currentTile.pigs = null;
-                    }
                 }
                 else if (nextTile.pigs != null)
                 {
@@ -445,12 +436,9 @@ namespace FightTheEvilOverlord
                         currentTile.pigs.totalSoldiers -= currentTile.pigs.activeSoldiers;
                         currentTile.isActive = false;
 
-                        if (currentTile.pigs.totalSoldiers == 0)
-                        {
                             currentTile.owner = 4;
                             currentTile.pigs.Destroy();
                             currentTile.pigs = null;
-                        }
                     }
                 }
             }
@@ -465,12 +453,9 @@ namespace FightTheEvilOverlord
                     currentTile.isActive = false;
 
 
-                    if (currentTile.swords.totalSoldiers == 0)
-                    {
                         currentTile.owner = 4;
                         currentTile.swords.Destroy();
                         currentTile.swords = null;
-                    }
                 }
                 else if (nextTile.swords != null)
                 {
@@ -480,12 +465,9 @@ namespace FightTheEvilOverlord
                         currentTile.swords.totalSoldiers -= currentTile.swords.activeSoldiers;
                         currentTile.isActive = false;
 
-                        if (currentTile.swords.totalSoldiers == 0)
-                        {
                             currentTile.owner = 4;
                             currentTile.swords.Destroy();
                             currentTile.swords = null;
-                        }
                     }
                 }
             }
