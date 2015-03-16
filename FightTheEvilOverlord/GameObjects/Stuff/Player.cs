@@ -85,11 +85,11 @@ namespace FightTheEvilOverlord
             else if (playerNumber == 3)
             {
                 for (int i = 0; i < unitNumber; i++)
-                    unitSpawn.addArcher(map.tilesArray[startTile.mapX - 1, startTile.mapY], this, unitNumber);
+                    unitSpawn.addBadArcher(map.tilesArray[startTile.mapX - 1, startTile.mapY], this, unitNumber);
                     map.tilesArray[startTile.mapX - 1, startTile.mapY].owner = 3;
-                    unitSpawn.addPig(map.tilesArray[startTile.mapX - 1, startTile.mapY + 1], this, unitNumber);
+                    unitSpawn.addBadPig(map.tilesArray[startTile.mapX - 1, startTile.mapY + 1], this, unitNumber);
                     map.tilesArray[startTile.mapX - 1, startTile.mapY + 1].owner = 3;
-                    unitSpawn.addSowrdsMen(map.tilesArray[startTile.mapX - 1, startTile.mapY - 1], this, unitNumber);
+                    unitSpawn.addBadSowrdsMen(map.tilesArray[startTile.mapX - 1, startTile.mapY - 1], this, unitNumber);
                     map.tilesArray[startTile.mapX - 1, startTile.mapY - 1].owner = 3;
             }
         }

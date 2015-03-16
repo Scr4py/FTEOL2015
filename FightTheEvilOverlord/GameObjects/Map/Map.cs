@@ -107,22 +107,22 @@ namespace FightTheEvilOverlord
         public void generateVillages()
         {
             RemoveTile(mapWidth / 4, mapHeight / 4);
-            villageArray[mapWidth / 4, mapHeight / 4] = new Village(texVillage, mapWidth / 4, mapHeight / 4, pigTex, archerTex, swordTex, moveX);
+            villageArray[mapWidth / 4, mapHeight / 4] = new Village(texVillage, mapWidth / 4, mapHeight / 4, pigTex, archerTex, swordTex, moveX, Utility.CurrentContent.Load<Texture2D>("BadArcher"), Utility.CurrentContent.Load<Texture2D>("BadPig"), Utility.CurrentContent.Load<Texture2D>("BadSword"));
 
             RemoveTile(mapWidth / 2, mapHeight / 2);
-            villageArray[mapWidth / 2, mapHeight / 2] = new Village(texVillage, mapWidth / 2, mapHeight / 2, pigTex, archerTex, swordTex, moveX);
+            villageArray[mapWidth / 2, mapHeight / 2] = new Village(texVillage, mapWidth / 2, mapHeight / 2, pigTex, archerTex, swordTex, moveX, Utility.CurrentContent.Load<Texture2D>("BadArcher"), Utility.CurrentContent.Load<Texture2D>("BadPig"), Utility.CurrentContent.Load<Texture2D>("BadSword"));
 
             RemoveTile(mapWidth / 3 + 3, mapHeight / 4);
-            villageArray[mapWidth / 3 + 3, mapHeight / 4] = new Village(texVillage, mapWidth / 3 + 3, mapHeight / 4, pigTex, archerTex, swordTex, moveX);
+            villageArray[mapWidth / 3 + 3, mapHeight / 4] = new Village(texVillage, mapWidth / 3 + 3, mapHeight / 4, pigTex, archerTex, swordTex, moveX, Utility.CurrentContent.Load<Texture2D>("BadArcher"), Utility.CurrentContent.Load<Texture2D>("BadPig"), Utility.CurrentContent.Load<Texture2D>("BadSword"));
 
             RemoveTile(mapWidth - 5, mapHeight - 4);
-            villageArray[mapWidth - 5, mapHeight - 4] = new Village(texVillage, mapWidth - 5, mapHeight - 4, pigTex, archerTex, swordTex, moveX);
+            villageArray[mapWidth - 5, mapHeight - 4] = new Village(texVillage, mapWidth - 5, mapHeight - 4, pigTex, archerTex, swordTex, moveX, Utility.CurrentContent.Load<Texture2D>("BadArcher"), Utility.CurrentContent.Load<Texture2D>("BadPig"), Utility.CurrentContent.Load<Texture2D>("BadSword"));
 
             RemoveTile(mapWidth / 5, mapHeight - 4);
-            villageArray[mapWidth / 5, mapHeight - 4] = new Village(texVillage, mapWidth / 5, mapHeight - 4, pigTex, archerTex, swordTex, moveX);
+            villageArray[mapWidth / 5, mapHeight - 4] = new Village(texVillage, mapWidth / 5, mapHeight - 4, pigTex, archerTex, swordTex, moveX, Utility.CurrentContent.Load<Texture2D>("BadArcher"), Utility.CurrentContent.Load<Texture2D>("BadPig"), Utility.CurrentContent.Load<Texture2D>("BadSword"));
 
             RemoveTile(mapWidth - 6, mapHeight / 2 - 2);
-            villageArray[mapWidth - 6, mapHeight / 2 - 2] = new Village(texVillage, mapWidth - 6, mapHeight / 2 - 2, pigTex, archerTex, swordTex, moveX);
+            villageArray[mapWidth - 6, mapHeight / 2 - 2] = new Village(texVillage, mapWidth - 6, mapHeight / 2 - 2, pigTex, archerTex, swordTex, moveX, Utility.CurrentContent.Load<Texture2D>("BadArcher"), Utility.CurrentContent.Load<Texture2D>("BadPig"), Utility.CurrentContent.Load<Texture2D>("BadSword"));
         }
 
         void RemoveTile(int tileX,int tileY)

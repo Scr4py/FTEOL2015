@@ -55,5 +55,41 @@ namespace FightTheEvilOverlord
                 spawnTile.archer = new Archer(spawnTile, player.playerNumber, 0, unitNumber, archTex, player);
             }
         }
+
+        public void addBadPig(Tile spawnTile, Player player, int unitNumber)
+        {
+            if (spawnTile.pigs != null)
+            {
+                spawnTile.pigs.number += unitNumber;
+            }
+            else
+            {
+                spawnTile.pigs = new FlyingPigs(spawnTile, player.playerNumber, 0, unitNumber, Utility.CurrentContent.Load<Texture2D>("BadPig"), player);
+            }
+        }
+
+        public void addBadSowrdsMen(Tile spawnTile, Player player, int unitNumber)
+        {
+            if (spawnTile.swords != null)
+            {
+                spawnTile.swords.number += unitNumber;
+            }
+            else
+            {
+                spawnTile.swords = new SwordsMen(spawnTile, player.playerNumber, 0, unitNumber, Utility.CurrentContent.Load<Texture2D>("BadSword"), player);
+            }
+        }
+
+        public void addBadArcher(Tile spawnTile, Player player, int unitNumber)
+        {
+            if (spawnTile.archer != null)
+            {
+                spawnTile.archer.number += unitNumber;
+            }
+            else
+            {
+                spawnTile.archer = new Archer(spawnTile, player.playerNumber, 0, unitNumber, Utility.CurrentContent.Load<Texture2D>("BadArcher"), player);
+            }
+        }
     }
 }
