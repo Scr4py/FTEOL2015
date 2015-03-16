@@ -37,6 +37,7 @@ namespace FightTheEvilOverlord
 
         public static Map map;
         public static Hud hud;
+        public static Background Background;
         public static UnitSpawner spawner;
 
         public static bool movementEngaged;
@@ -101,6 +102,7 @@ namespace FightTheEvilOverlord
 
         public static void startGame()
         {
+            Utility.Background = new Background(CurrentContent.Load<Texture2D>("HudGraphics\\game_bg"));
             Utility.map = new Map(CurrentContent.Load<Texture2D>("mountain_tile"), CurrentContent.Load<Texture2D>("forest_tile"), CurrentContent.Load<Texture2D>("plains_tile"), CurrentContent.Load<Texture2D>("village_tile_wip"), CurrentContent.Load<Texture2D>("wheat_tile"), CurrentContent.Load<Texture2D>("MiniMapTexture"), CurrentContent.Load<Texture2D>("pig_unit"), CurrentContent.Load<Texture2D>("bow_unit"), CurrentContent.Load<Texture2D>("sword_unit"));
             Utility.PigPlayer = new Player(1, 2, Utility.spawner, Utility.map.tilesArray[1, map.mapHeight / 2], CurrentContent.Load<Texture2D>("pig_unit"), map);
             Utility.ArchPlayer = new Player(0, 2, Utility.spawner, Utility.map.tilesArray[1, 1], CurrentContent.Load<Texture2D>("bow_unit"), map);
