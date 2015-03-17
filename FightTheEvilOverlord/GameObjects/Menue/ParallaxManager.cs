@@ -349,9 +349,9 @@ namespace FightTheEvilOverlord
                 }
                 else if (layer.speed == 41.0f)
                 {
-                    if (layer.Position.Y <= -10)
+                    if (layer.Position.Y <= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 2 - 150)
                     {
-                        layer.Position = new Vector2(layer.Position.X, layer.Position.Y + 13);
+                        layer.Position = new Vector2(layer.Position.X, layer.Position.Y + 10);
                         spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
                     }
                     else
@@ -361,9 +361,9 @@ namespace FightTheEvilOverlord
                 }
                 else if (layer.speed == 42.0f)
                 {
-                    if (layer.Position.Y <= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 2 - 200)
+                    if (layer.Position.Y <= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 2 - 275)
                     {
-                        layer.Position = new Vector2(layer.Position.X, layer.Position.Y + 10);
+                        layer.Position = new Vector2(layer.Position.X, layer.Position.Y + 11);
                         spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
                     }
                     else
@@ -373,9 +373,9 @@ namespace FightTheEvilOverlord
                 }
                 else if (layer.speed == 43.0f)
                 {
-                    if (layer.Position.Y <= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 2 - 100)
+                    if (layer.Position.Y <= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 2 - 25)
                     {
-                        layer.Position = new Vector2(layer.Position.X, layer.Position.Y + 10);
+                        layer.Position = new Vector2(layer.Position.X, layer.Position.Y + 12);
                         spriteBatch.Draw(layer.Image, layer.Position, null, Color.White, 0.0f, Vector2.Zero, layer.scale, SpriteEffects.None, 1);
                     }
                     else

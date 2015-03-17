@@ -50,13 +50,10 @@ namespace FightTheEvilOverlord
             this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\säule"), 1.0f, 1.0f, 1.0f, new Vector2(0, 100)));
             this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\säule"), 1.0f, 1.0f, 2.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - (650 * scale), 100)));
             //Option Button
-            this.ArcherControlled = new Button(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\bow_unit_hud"), GameState.Menue, "bowunit", pm);
-            this.ArcherControlled.GetComponent<Transform>().Position = new Vector2((860*scale), (790*scale));
-            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\bow_unit_hud"), 1.0f, 1.0f, 43.0f, new Vector2((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 250 * scale), (-800 * scale))));
+            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\Option\\bow_unit"), 1.0f, 1.0f, 42.0f, new Vector2((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 250 * scale), (-800 * scale))));
+            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\Option\\pig_unit"), 1.0f, 1.0f, 41.0f, new Vector2((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 250 * scale), (-800 * scale))));
+            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\Option\\sword_unit"), 1.0f, 1.0f, 43.0f, new Vector2((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 250 * scale), (-800 * scale))));
 
-            this.PigControlled = new Button(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\pig_unit_hud"), GameState.Menue, "pigunit", pm);
-            this.PigControlled.GetComponent<Transform>().Position = new Vector2((860 * scale), (790 * scale));
-            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\pig_unit_hud"), 1.0f, 1.0f, 42.0f, new Vector2((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 250 * scale), (-800 * scale))));
 
             this.play = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_start"), GameState.GameStart, "play", pm);
             this.play.GetComponent<Transform>().Position = new Vector2((730 * scale), (400 * scale));

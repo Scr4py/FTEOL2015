@@ -540,3 +540,10 @@ C:\Users\Scrapy\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\De
 C:\Users\Scrapy\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\castleOverlord.png
 C:\Users\Scrapy\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\castlePig.png
 C:\Users\Scrapy\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\castleSword.png
+C:\Users\Scr4py\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\castleArcher.png
+C:\Users\Scr4py\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\castleOverlord.png
+C:\Users\Scr4py\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\castlePig.png
+C:\Users\Scr4py\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\castleSword.png
+C:\Users\Scr4py\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\MenuGraphics\Option\bow_unit.png
+C:\Users\Scr4py\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\MenuGraphics\Option\pig_unit.png
+C:\Users\Scr4py\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\MenuGraphics\Option\sword_unit.png
