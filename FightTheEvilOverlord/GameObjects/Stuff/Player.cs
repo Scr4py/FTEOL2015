@@ -18,12 +18,12 @@ namespace FightTheEvilOverlord
         Tile startTile;
         public bool KIControlled = false;
         Transform transform;
-        UnitRenderer unitRender;
+        //UnitRenderer unitRender;
         UnitSpawner unitSpawn;
 
         Map map;
 
-        public Player(int playerNumber, int unitNumber, UnitSpawner unitSpawn, Tile tile, Texture2D image, Map map)
+        public Player(int playerNumber, int unitNumber, UnitSpawner unitSpawn, Tile tile, Texture2D image, Map map, string TileType)
         {
             this.map = map;
             
@@ -37,12 +37,13 @@ namespace FightTheEvilOverlord
             getStartSoldier();
 
             this.transform = this.AddComponent<Transform>();
-            this.unitRender = this.AddComponent<UnitRenderer>();
+            //this.unitRender = this.AddComponent<UnitRenderer>();
             this.transform.Position = new Vector2((tile.transform.Position.X) + ((1448 * Renderer.scale) / 2) - ((image.Width * UnitRenderer.scale) / 2), (tile.transform.Position.Y) + ((1252 * Renderer.scale) / 2) - ((image.Height * UnitRenderer.scale) / 2));
-            this.unitRender.SetImage(image);
-            this.unitRender.Start();
+            //this.unitRender.SetImage(image);
+            //this.unitRender.Start();
             EventManager.OnUpdate += OnUpdate;
             WinningScreen.GameFinished += () => { Destroy(); };
+            map.generateCustomeTile(tile, image, TileType);
         }
 
         void OnUpdate(GameTime gameTime)

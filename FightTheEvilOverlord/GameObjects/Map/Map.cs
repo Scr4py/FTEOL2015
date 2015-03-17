@@ -63,7 +63,11 @@ namespace FightTheEvilOverlord
             WinningScreen.GameFinished += () => { Destroy(); };
         }
 
-
+        public void generateCustomeTile(Tile tile, Texture2D tex, string type)
+        {
+            tile.render.SetImage(tex);
+            tile.Type = type;
+        }
 
         public void generateTiles()
         {

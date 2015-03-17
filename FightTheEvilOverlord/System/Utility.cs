@@ -104,10 +104,10 @@ namespace FightTheEvilOverlord
         {
             Utility.Background = new Background(CurrentContent.Load<Texture2D>("HudGraphics\\game_bg"));
             Utility.map = new Map(CurrentContent.Load<Texture2D>("mountain_tile"), CurrentContent.Load<Texture2D>("forest_tile"), CurrentContent.Load<Texture2D>("plains_tile"), CurrentContent.Load<Texture2D>("village_tile_wip"), CurrentContent.Load<Texture2D>("wheat_tile"), CurrentContent.Load<Texture2D>("MiniMapTexture"), CurrentContent.Load<Texture2D>("pig_unit"), CurrentContent.Load<Texture2D>("bow_unit"), CurrentContent.Load<Texture2D>("sword_unit"));
-            Utility.PigPlayer = new Player(1, 2, Utility.spawner, Utility.map.tilesArray[1, map.mapHeight / 2], CurrentContent.Load<Texture2D>("pig_unit"), map);
-            Utility.ArchPlayer = new Player(0, 2, Utility.spawner, Utility.map.tilesArray[1, 1], CurrentContent.Load<Texture2D>("bow_unit"), map);
-            Utility.SwordPlayer = new Player(2, 2, Utility.spawner, Utility.map.tilesArray[1, map.mapHeight - 2], CurrentContent.Load<Texture2D>("sword_unit"), map);
-            Utility.EvilOverLord = new Player(3, 3, Utility.spawner, Utility.map.tilesArray[map.mapWidth - 2, map.mapHeight / 2], CurrentContent.Load<Texture2D>("sword_unit"), map);
+            Utility.PigPlayer = new Player(1, 2, Utility.spawner, Utility.map.tilesArray[1, map.mapHeight / 2], CurrentContent.Load<Texture2D>("castlePig"), map, "berg");
+            Utility.ArchPlayer = new Player(0, 2, Utility.spawner, Utility.map.tilesArray[1, 1], CurrentContent.Load<Texture2D>("castleArcher"), map, "wald");
+            Utility.SwordPlayer = new Player(2, 2, Utility.spawner, Utility.map.tilesArray[1, map.mapHeight - 2], CurrentContent.Load<Texture2D>("castleSword"), map, "feld");
+            Utility.EvilOverLord = new Player(3, 3, Utility.spawner, Utility.map.tilesArray[map.mapWidth - 2, map.mapHeight / 2], CurrentContent.Load<Texture2D>("castleOverlord"), map, "wiese");
             Utility.GameManager = new GameManager(Utility.PigPlayer, Utility.ArchPlayer, Utility.SwordPlayer, Utility.EvilOverLord, Utility.map);
             Utility.hud = new Hud(CurrentContent.Load<Texture2D>("HudGraphics\\hudTex"), CurrentContent.Load<SpriteFont>("Arial"));
             Utility.hud.SetVector(new Vector2(0, 1005 * Utility.globalScale));
