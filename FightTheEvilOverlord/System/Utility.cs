@@ -122,9 +122,9 @@ namespace FightTheEvilOverlord
                 menu.exit.Destroy();
                 menu.option.Destroy();
                 menu.play.Destroy();
-                menu.pm.Destroy();
-                menu.pm = null;
-                menu = null;
+                //menu.pm.Destroy();
+                //menu.pm = null;
+                //menu = null;
             }
         }
     }

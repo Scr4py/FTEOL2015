@@ -108,12 +108,12 @@ namespace FightTheEvilOverlord
             if (Utility.map != null)
             {
                 this.Audio.StopMusic();
-                this.Menu.Destroy();
-                this.play.Destroy();
-                this.howTo.Destroy();
-                this.option.Destroy();
-                this.credits.Destroy();
-                this.exit.Destroy();
+                //this.Menu.Destroy();
+                //this.play.Destroy();
+                //this.howTo.Destroy();
+                //this.option.Destroy();
+                //this.credits.Destroy();
+                //this.exit.Destroy();
                 Utility.destroyMenue(this);
             }
         }

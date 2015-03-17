@@ -526,3 +526,9 @@ C:\Users\Scr4py\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\De
 C:\Users\Scr4py\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\GoodWin.png
 C:\Users\Scr4py\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\HudGraphics\game_bg.png
 C:\Users\Max\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\HudGraphics\game_bg.png
+C:\Users\Scrapy\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\BadArcher.png
+C:\Users\Scrapy\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\BadPig.png
+C:\Users\Scrapy\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\BadSword.png
+C:\Users\Scrapy\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\BadWin.png
+C:\Users\Scrapy\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\GoodWin.png
+C:\Users\Scrapy\Documents\GitHub\FTEOL2015\FightTheEvilOverlord\bin\WindowsGL\Debug\Content\HudGraphics\game_bg.png
