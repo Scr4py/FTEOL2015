@@ -41,6 +41,7 @@ namespace FightTheEvilOverlord
         public static UnitSpawner spawner;
 
         public static bool movementEngaged;
+        public static bool MenuActive;
 
         public static ContentManager CurrentContent;
         public static GraphicsDevice CurrentGraphicsDevice;
@@ -113,19 +114,5 @@ namespace FightTheEvilOverlord
             Utility.hud.SetVector(new Vector2(0, 1005 * Utility.globalScale));
         }
 
-
-        public static void destroyMenue(Menue menu)
-        {
-            if (menu != null && menu.pm != null)
-            {
-                menu.credits.Destroy();
-                menu.exit.Destroy();
-                menu.option.Destroy();
-                menu.play.Destroy();
-                //menu.pm.Destroy();
-                //menu.pm = null;
-                //menu = null;
-            }
-        }
     }
 }

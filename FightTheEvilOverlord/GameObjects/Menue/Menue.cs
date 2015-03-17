@@ -23,14 +23,19 @@ namespace FightTheEvilOverlord
         public Button Village;
         public Button Movement;
         public Button TileColor;
-        public Button Slider;
         public Button Menu;
+        public Button Slider;
+        public Button ArcherControlled;
+        public Button PigControlled;
+        public Button SwordControlled;
+        public Button OverLordControlled;
 
         float scale;
         public Menue()
         {
+            Utility.MenuActive = true;
             this.scale = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 1920.0f;
-
+            
             this.pm = new ParallaxManager();
             this.Audio = AddComponent<Audio>();
             this.Audio.SetMenuMusicAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\MenuMusic"));
@@ -44,12 +49,14 @@ namespace FightTheEvilOverlord
             //Characters
             this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\säule"), 1.0f, 1.0f, 1.0f, new Vector2(0, 100)));
             this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\säule"), 1.0f, 1.0f, 2.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - (650 * scale), 100)));
-            //tile
-            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("wheat_tile"), 1.0f, Utility.scale, 42.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 75, -1000)));
             //Option Button
-            this.Menu = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu"), GameState.Menue, "Menu", pm);
-            this.Menu.GetComponent<Transform>().Position = new Vector2(860, 790);
-            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu"), 1.0f, 1.0f, 43.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 100, -800)));
+            this.ArcherControlled = new Button(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\bow_unit_hud"), GameState.Menue, "bowunit", pm);
+            this.ArcherControlled.GetComponent<Transform>().Position = new Vector2((860*scale), (790*scale));
+            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\bow_unit_hud"), 1.0f, 1.0f, 43.0f, new Vector2((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 250 * scale), (-800 * scale))));
+
+            this.PigControlled = new Button(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\pig_unit_hud"), GameState.Menue, "pigunit", pm);
+            this.PigControlled.GetComponent<Transform>().Position = new Vector2((860 * scale), (790 * scale));
+            this.pm.Layers.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\pig_unit_hud"), 1.0f, 1.0f, 42.0f, new Vector2((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - 250 * scale), (-800 * scale))));
 
             this.play = new Button(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\button_menu_start"), GameState.GameStart, "play", pm);
             this.play.GetComponent<Transform>().Position = new Vector2((730 * scale), (400 * scale));
@@ -108,13 +115,8 @@ namespace FightTheEvilOverlord
             if (Utility.map != null)
             {
                 this.Audio.StopMusic();
-                //this.Menu.Destroy();
-                //this.play.Destroy();
-                //this.howTo.Destroy();
-                //this.option.Destroy();
-                //this.credits.Destroy();
-                //this.exit.Destroy();
-                Utility.destroyMenue(this);
+                this.Menu.Destroy();
+                Utility.MenuActive = false;
             }
         }
     }

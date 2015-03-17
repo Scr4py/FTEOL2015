@@ -81,7 +81,7 @@ namespace FightTheEvilOverlord
 
         private void checkIfToMoveOnTile()
         {
-            if (Utility.movementEngaged == false)
+            if (Utility.movementEngaged == false && !this.owner.KIControlled)
             {
                 if (currentState.LeftButton == ButtonState.Pressed &&
                     Utility.isColliding(this.transform, currentState, image) &&

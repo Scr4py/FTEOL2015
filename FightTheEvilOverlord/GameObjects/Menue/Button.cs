@@ -24,7 +24,8 @@ namespace FightTheEvilOverlord
         Move,
         TileColor,
         Slider,
-        NextPlayer
+        NextPlayer,
+        ExitGame
     }
 
     class Button : GameObject
@@ -79,95 +80,105 @@ namespace FightTheEvilOverlord
 
         private void OnClick(int x, int y)
         {
-            if (this.state == GameState.GameStart)
+            if (Utility.MenuActive)
             {
-                this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
-                Utility.startGame();
-            }
-            else if (this.state == GameState.HowTo)
-            {
-                this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
-                pm.goDown();
-                pm.HowTo();
-            }
+                if (this.state == GameState.GameStart)
+                {
+                    this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
+                    Utility.startGame();
+                }
+                else if (this.state == GameState.HowTo)
+                {
+                    this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
+                    pm.goDown();
+                    pm.HowTo();
+                }
 
 
-            else if (this.state == GameState.Options)
-            {
-                this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
+                else if (this.state == GameState.Options)
+                {
+                    this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
 
-                pm.goUp();
-            }
+                    pm.goUp();
+                }
 
-            else if (this.state == GameState.Exit)
-            {
-                this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
-                Environment.Exit(0);
-            }
-            else if (this.state == GameState.Credits)
-            {
-                this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
+                else if (this.state == GameState.Exit)
+                {
+                    this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
+                    Environment.Exit(0);
+                }
+                else if (this.state == GameState.Credits)
+                {
+                    this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
 
+                }
             }
-            else if (this.state == GameState.Field)
+            else
             {
-                this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
+                if (this.state == GameState.Field)
+                {
+                    this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
 
-                this.pm.HowToLayer.RemoveAt(0);
-                this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\BoardLayout"), 0.35f, 0.35f, 2.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + (100 * scale), -25)));
-            }
-            else if (this.state == GameState.Fight)
-            {
-                this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
+                    this.pm.HowToLayer.RemoveAt(0);
+                    this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\BoardLayout"), 0.35f, 0.35f, 2.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + (100 * scale), -25)));
+                }
+                else if (this.state == GameState.Fight)
+                {
+                    this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
 
-                this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\Test1"), 0.35f, 0.35f, 3.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + (100 * scale), 1500)));
-            }
-            else if (this.state == GameState.Villages)
-            {
-                this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
+                    this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\Test1"), 0.35f, 0.35f, 3.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + (100 * scale), 1500)));
+                }
+                else if (this.state == GameState.Villages)
+                {
+                    this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
 
-                this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\Test1"), 0.35f, 0.35f, 4.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + (100 * scale), 1500)));
-            }
-            else if (this.state == GameState.Move)
-            {
-                this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
+                    this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\Test1"), 0.35f, 0.35f, 4.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + (100 * scale), 1500)));
+                }
+                else if (this.state == GameState.Move)
+                {
+                    this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
 
-                this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\Test1"), 0.35f, 0.35f, 5.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + (100 * scale), 1500)));
-            }
-            else if (this.state == GameState.TileColor)
-            {
-                this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
+                    this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\Test1"), 0.35f, 0.35f, 5.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + (100 * scale), 1500)));
+                }
+                else if (this.state == GameState.TileColor)
+                {
+                    this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
 
-                this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\Test1"), 0.35f, 0.35f, 6.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + (100 * scale), 1500)));
-            }
-            else if (this.state == GameState.Slider)
-            {
-                this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
+                    this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\Test1"), 0.35f, 0.35f, 6.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + (100 * scale), 1500)));
+                }
+                else if (this.state == GameState.Slider)
+                {
+                    this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
 
-                this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\Test1"), 0.35f, 0.35f, 7.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + (100 * scale), 1500)));
-            }
-            else if (this.state == GameState.NextPlayer)
-            {
-                this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
+                    this.pm.HowToLayer.Add(new ParallaxLayer(Utility.CurrentContent.Load<Texture2D>("MenuGraphics\\HowTo\\Test1"), 0.35f, 0.35f, 7.0f, new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + (100 * scale), 1500)));
+                }
+                else if (this.state == GameState.NextPlayer)
+                {
+                    this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
 
-                Utility.GameManager.NextPlayer();
-            }
-            else if (this.state == GameState.Accept)
-            {
-                this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
+                    Utility.GameManager.NextPlayer();
+                }
+                else if (this.state == GameState.Accept)
+                {
+                    this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
 
-                Console.WriteLine("Accept Test");
-            }
-            else if (this.state == GameState.Menue)
-            {
-                this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
-                pm.DrawMenu();
-            }
-            else if (this.state == GameState.Cancel)
-            {
-                this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
+                    Console.WriteLine("Accept Test");
+                }
+                else if (this.state == GameState.Menue)
+                {
+                    this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
+                }
+                else if (this.state == GameState.Cancel)
+                {
+                    this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
 
-                Console.WriteLine("Cancel Test");
+                    Console.WriteLine("Cancel Test");
+                }
+                else if (this.state == GameState.ExitGame)
+                {
+                    this.audio.SetAndPlay(Utility.CurrentContent.Load<SoundEffect>("Audio\\button_click"));
+                    Environment.Exit(0);
+                }
             }
         }
 

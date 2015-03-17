@@ -37,7 +37,7 @@ namespace FightTheEvilOverlord
         {
             this.menue = new Button(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\button_hud"), GameState.Menue);
             this.menue.GetComponent<Transform>().Position = new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - (1300 * scale), GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - (55 * scale));
-            this.exit = new Button(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\button_hud"), GameState.Exit);
+            this.exit = new Button(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\button_hud"), GameState.ExitGame);
             this.exit.GetComponent<Transform>().Position = new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 2 - ((this.exit.image.Width * scale) / 2), GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - (55 * scale));
             this.nextPlayer = new Button(Utility.CurrentContent.Load<Texture2D>("HudGraphics\\button_endturn"), GameState.NextPlayer);
             this.nextPlayer.GetComponent<Transform>().Position = new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - (620 * scale) - (this.nextPlayer.image.Width * scale), GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - (55 * scale));

@@ -9,7 +9,7 @@ namespace FightTheEvilOverlord
         public int activeTiles;
         FightManager fightManager;
         float timer;
-        public float delay = 000;
+        public float delay = 1000;
 
         Tile nextTile;
 

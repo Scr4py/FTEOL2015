@@ -53,6 +53,7 @@ namespace FightTheEvilOverlord
 
             if (timer > delay)
             {
+                Utility.MenuActive = true;
                 render.Destroy();
                 this.Destroy();
             }
